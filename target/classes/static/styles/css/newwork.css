@@ -1,0 +1,75 @@
+﻿body{ 
+    margin:0;
+    padding:0; 
+    font-family: 微软雅黑;}
+
+.work{
+    height: 550px;
+    width:1300px;
+    border: 4px solid #376956;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 30px;
+    float: left;
+}
+
+.back{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 30px;
+    width: 30px;
+}
+
+.make{
+    padding-top: 30px;
+    height:480px;
+    width:1000px;
+    border:3px ridge grey;
+    margin-top:40px;
+    margin-left: 150px;
+}
+
+.form-horizontal{
+
+}
+
+.form-group1{
+    width: 300px;
+    margin-left: 100px;
+    float: left;
+}
+
+.form-group2-1{
+    width: 180px;
+    margin-left: 80px;
+    float: left;
+}
+.form-group2-2{
+    width: 180px;
+    margin-left: 30px;
+    float: left;
+}
+
+.form-group3{
+    width: 300px;
+    margin-left: 100px;
+    float: left;
+}
+
+.form-group3-2{
+    width: 180px;
+    margin-left: 30px;
+    float: left;
+}
+.form-group4{
+    width: 380px;
+    margin-left: 80px;
+    float: left;
+}
+
+.form-group5{
+    width: 760px;
+    margin-left: 100px;
+    float: left;
+}

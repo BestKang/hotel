@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.springframework.org/schema/beans">
+<head>
+    <meta th:remove="tag" th:include="fragements/header::header(title='主页')">
+    <link th:href="@{/styles/css/index.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body onLoad="time()">
+
+<div class="page-header">
+    <p style="margin-top: -50px;font-size: 40px;">
+       派出所 <small>警务管理系统</small>
+    </p>
+</div>
+
+<div class="index">
+    <div class="main-box ">
+        <a class="mybutton button1" href="/taskmanagement/maintask/createmaintask.html">新建任务</a>
+        <div class="right-box">
+            <a class="mybutton button2" href="/taskmanagement/maintask/list.html">任务列表</a>
+            <a class="mybutton button3" href="/CopStaffManagement/info/dddd.html">突发登记</a>
+            <a class="mybutton button4" href="/CopStaffManagement/info/coplist.html">警员信息</a>
+            <a class="mybutton button5" href="/taskmanagement/sontask/listall.html">任务总结</a>
+        </div>
+        <div class="showtime" id="showtime"></div>
+    </div>
+</div>
+
+
+<footer style=" z-index: 2;position: relative;background-color: #3d3d3d;">
+    <div th:remove="tag" th:include="fragements/footer::footer"></div>
+</footer>
+<script language=Javascript>
+    function time() {
+        //获得显示时间的div
+        t_div = document.getElementById('showtime');
+        var now = new Date()
+        //替换div内容
+        t_div.innerHTML = "现在是" + now.getFullYear() + "年" + (now.getMonth() + 1) + "月" + now.getDate() + "日" + now.getHours() + "时" + now.getMinutes() + "分" + now.getSeconds() + "秒";
+        //等待一秒钟后调用time方法，由于settimeout在time方法内，所以可以无限调用
+        setTimeout(time, 1000);
+    }
+</script>
+</body>
+</html>
