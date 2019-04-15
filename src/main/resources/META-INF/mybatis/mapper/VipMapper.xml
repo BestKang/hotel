@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hotelmanage.mapper.VipMapper">
+    <resultMap id="BaseResultMap" type="com.hotelmanage.pojo.entity.vip.VipCustomer">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="pw" property="pw" jdbcType="VARCHAR"/>
+        <result column="realname" property="realname" jdbcType="VARCHAR"/>
+        <result column="identity" property="identity" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <result column="tel" property="tel" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <sql id="main_task_info">
+        id,name,pw,realname,identity,sex,tel
+    </sql>
+
+    <select id="getLogin" parameterType="java.lang.String" resultType="com.hotelmanage.pojo.entity.vip.VipCustomer">
+        SELECT
+        <include refid="main_task_info"/>
+        FROM
+        vipcustomer
+        WHERE
+        name =#{name} and pw=#{pw}
+    </select>
+
+    <insert id="registerVipCustomer" parameterType="com.hotelmanage.pojo.entity.vip.VipCustomer">
+        insert into
+        vipcustomer
+        (id,name ,pw,realname,identity,sex,tel)
+        values
+        (#{id},#{name},#{pw},#{realname},#{identity},#{sex},#{tel})
+    </insert>
+
+    <update id="updateInfo" parameterType="com.hotelmanage.pojo.dto.vip.VipCustomerDTO">
+        UPDATE
+        vipcustomer
+        SET
+        <if test="name!= null and name!=''">
+            and name = #{name}
+        </if>
+        <if test="pw!= null and pw!=''">
+            and pw = #{pw}
+        </if>
+        <if test="realname!= null and realname!=''">
+            and realname = #{realname}
+        </if>
+        <if test="identity!= null and identity!=''">
+            and identity = #{identity}
+        </if>
+        <if test="sex!= null and sex!=''">
+            and sex = #{sex}
+        </if>
+        <if test="tel!= null and tel!=''">
+            and tel = #{tel}
+        </if>
+        /*updated_at = now()*/
+        WHERE
+        id = #{id}
+    </update>
+</mapper>

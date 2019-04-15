@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+</head>
+<!--<script src="jquery.js"></script>-->
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<!--<script th:src="@{/scripts/pages/copinfo/list.js?201811051728}"></script>-->
+<script>
+    function login() {
+        $.ajax({
+            url: '/ad/adminLogin',
+            type: 'post',
+            dataType: 'text',
+            data: {"name": $('#name').val(), "pw": $('#pw').val()},
+            success: function (d) {
+                console.log("1111");
+                if (d == "success") {
+                    window.location.href = 'index.html';
+                } else {
+                    window.location.href = 'index.html';
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log("2222");
+                alert(XMLHttpRequest.status); // 200
+                alert(textStatus); // parsererror
+                alert(errorThrown); // SyntaxError: Unexpected end of input
+            }
+        })
+    }
+</script>
+<body>
+     <p> 请输入用户名和密码</p>
+     <form>
+             <table>
+                 <tr>
+                     <td>用户名</td>
+                     <td><input type="text" id="name" ></td>
+                 </tr>
+                 <tr>
+                     <td>密 码</td>
+                     <td><input type="password" id="pw" ></td>
+                 </tr>
+                 <tr>
+                     <td colspan="2">
+                         <input type="button" onclick="login()" value="登陆" >
+                    </td>
+                 </tr>
+             </table>
+         </form>
+</body>
+
+</html>

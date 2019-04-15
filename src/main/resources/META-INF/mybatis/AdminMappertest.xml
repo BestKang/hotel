@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hotelmanage.mapper.AdminMapper">
+    <resultMap id="BaseResultMap" type="com.hotelmanage.pojo.entity.admin.Admin">
+        <result column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="pw" property="pw" jdbcType="VARCHAR"/>
+        <result column="pos" property="pos" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <sql id="admin_login">
+        id,name,pw,pos
+    </sql>
+
+    <select id="getAdmin1" parameterType="java.lang.String" resultType="com.hotelmanage.pojo.entity.admin.Admin" resultMap="BaseResultMap">
+        SELECT
+        <include refid="admin_login"/>
+        from
+        admin
+        where
+        name =#{name} and pw=#{pw}
+    </select>
+
+    <select id="getadmininfo2"  resultType="com.hotelmanage.pojo.entity.admin.Admin" >
+        SELECT
+        <include refid="admin_login"/>
+        from
+        admin
+        where
+        name =123
+    </select>
+
+    <select id="listAdmin3" resultMap="BaseResultMap"  >
+        SELECT
+        *
+        FROM
+        admin
+    </select>
+</mapper>

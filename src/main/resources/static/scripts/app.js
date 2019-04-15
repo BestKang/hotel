@@ -253,7 +253,7 @@ var App = function () {
             if (req && req.responseJSON) {
                 var json = req.responseJSON;
                 if (json.code === 18001) {
-                    window.top.location.href = '/login';
+                    window.top.location.href = '/admin';
                 }
                 //if(layer)layer.msg('登录失效,请重新登录');
 
@@ -261,7 +261,7 @@ var App = function () {
             }
         }).ajaxError(function (evt, xhr, info) {
             if (xhr.status == 18001) {
-                window.top.location.href = '/login';
+                window.top.location.href = '/admin';
             }
             //console.log(xhr);
         });

@@ -15,7 +15,8 @@ layui.use(['layer', 'lmfTable'], function () {
 
     var ajaxUrl = {
         getList: '/CopStaffManagement/info/listcop',
-        delete: '/CopStaffManagement/info/deleteCopStaff'
+        delete: '/CopStaffManagement/info/deleteCopStaff',
+        login:'/ad/adminLogin'
     };
 
     var TABLE_CONFIG = {
